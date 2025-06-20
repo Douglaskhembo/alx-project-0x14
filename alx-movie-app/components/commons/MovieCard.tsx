@@ -1,10 +1,19 @@
-const MovieCard = () => {
-    return (
-        <div className="bg-white rounded-lg shadow-md p-4">
-            <h2 className="text-xl font-semibold mt-2">Movie Title</h2>
-            <p className="text-gray-600 mt-1">Release Date: 2023</p>
-            <p className="text-gray-800 mt-2">This is a brief description of the movie. It gives an overview of the plot and main characters.</p>
-        </div>
-    );
+import { MovieProps } from "@/interfaces"
+import Image from "next/image"
+
+const MovieCard: React.FC<MovieProps> = ({ title, posterImage, releaseYear }) => {
+  return (
+    <div className="h-[563px]">
+      <div>
+        <Image className="h-[430px] w-full rounded-md hover:cursor-pointer" src={posterImage} width={100} height={100} alt={title} />
+
+      </div>
+      <div className="flex justify-between py-4">
+        <p className="text-xl font-bold">{title}</p>
+        <p className="text-xl text-[#E2D609]">{releaseYear}</p>
+      </div>
+    </div>
+  )
 }
-export default MovieCard;
+
+export default MovieCard
